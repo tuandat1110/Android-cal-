@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:hint="menh gia thu 1"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:id="@+id/edit_text1"/>
 
     <Spinner
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:hint="menh gia thu 2"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:id="@+id/edit_text2"/>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +68,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="CE"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_CE"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -74,7 +77,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="C"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_C"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,7 +93,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="7"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_7"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -97,7 +102,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="8"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_8"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -105,7 +111,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="9"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_9"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,7 +126,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="4"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_4"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -127,7 +135,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="5"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_5"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -135,7 +144,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="6"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_6"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,7 +159,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="1"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_1"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -157,7 +168,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="2"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_2"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -165,7 +177,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="3"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_3"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -186,7 +199,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="0"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_0"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -194,7 +208,8 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:text="."
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/button_dot"/>
         </LinearLayout>
 
     </LinearLayout>
