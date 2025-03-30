@@ -12,7 +12,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:hint="menh gia thu 1"
+        android:hint="0"
         android:padding="10dp"
         android:id="@+id/edit_text1"/>
 
@@ -25,7 +25,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:hint="menh gia thu 2"
+        android:hint="0"
         android:padding="10dp"
         android:id="@+id/edit_text2"/>
     <Spinner
