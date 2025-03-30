@@ -1,18 +1,14 @@
 package com.example.chuyen_tien_te
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
-import android.util.Log.v
 import android.view.View
-import android.widget.Adapter
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.text.TextWatcher
 import android.util.Log
 
@@ -35,7 +31,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var button_8: Button
     lateinit var button_9: Button
     lateinit var button_dot: Button
+    lateinit var button_equal: Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         button_CE = findViewById(R.id.button_CE)
         button_C = findViewById(R.id.button_C)
         button_dot = findViewById(R.id.button_dot)
+        button_equal = findViewById(R.id.button_equal)
         val nations = arrayOf(
             "Vietnam - VND",
             "China - Yuan",
@@ -195,38 +194,32 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-//dang khong nhap de doi duoc
-        currentEditText?.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Không cần xử lý trong trường hợp này
-            }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        button_equal.setOnClickListener {
+            if(currentEditText?.text.toString().isNotEmpty()){
                 val selectedValue1 = currentSpinner?.selectedItem.toString()
                 val selectedValue2 = anotherSpinner?.selectedItem.toString()
-                var amount: Double = currentEditText.text.toString().toDouble()
+                var amount: Double = currentEditText?.text.toString().toDouble()
                 var currency1: String = getCurrency(selectedValue1)
                 var currency2: String = getCurrency(selectedValue2)
-                var tmp1: Double = convertCurrency(amount,currency1,currency2)
+                var tmp1: Double? = convertCurrency(amount,currency1,currency2)
                 anotherEditText?.setText(tmp1.toString())
                 Log.d("CurrencyConverter", "Da nhap")
             }
+        }
 
-            override fun afterTextChanged(s: Editable?) {
-                // Cập nhật giá trị hoặc thực hiện hành động sau khi nhập
-            }
-        })
     }
 
     fun convertCurrency(amount: Double, fromCurrency: String, toCurrency: String): Double {
         // Bảng tỷ giá quy đổi sang USD
         val exchangeRates = mapOf(
-            "VND" to 0.000039,  // 1 VND = 0.000039 USD
-            "Yuan" to 0.14,     // 1 Yuan = 0.14 USD
-            "Yen" to 0.0068,    // 1 Yen = 0.0068 USD
-            "Pound" to 1.27,    // 1 Pound = 1.27 USD
+            "VND" to 23185.0,   // 1 USD = 23,185 VND
+            "Yuan" to 7.1,      // 1 USD = 7.1 Yuan
+            "Yen" to 146.5,     // 1 USD = 146.5 Yen
+            "Pound" to 0.79,    // 1 USD = 0.79 Pound
             "Dollar" to 1.0     // 1 USD = 1 USD
         )
+
 
         // Kiểm tra nếu loại tiền hợp lệ
         if (!exchangeRates.containsKey(fromCurrency) || !exchangeRates.containsKey(toCurrency)) {
@@ -234,26 +227,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Chuyển đổi số tiền từ loại tiền nguồn về USD
-        val amountInUSD = amount * (1 / exchangeRates[fromCurrency]!!)
+        val amountInUSD = amount / exchangeRates[fromCurrency]!!
 
         // Chuyển đổi từ USD sang loại tiền đích
-        val convertedAmount = amountInUSD * exchangeRates[toCurrency]!!
-
-        return convertedAmount
+        return amountInUSD * exchangeRates[toCurrency]!!
     }
 
 
-    fun getCurrency(tmp: String): String {
-        var t:Int = 0
-        for ((idx,value) in tmp.withIndex()){
-            if(value == '-'){
-                t = idx+1
-            }
-        }
-        return tmp.substring(t)
+
+    private fun getCurrency(fullText: String): String {
+        return fullText.substringAfter("-").trim()
     }
-
-
 }
 
 
